@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Watch Pro</title>
+    <link rel="stylesheet" href="style .css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="watch-container">
+        <!-- Watch Frame -->
+        <div class="watch-frame">
+            <!-- Status Bar -->
+            <div class="status-bar">
+                <div class="battery">
+                    <i class="fas fa-battery-three-quarters"></i>
+                    <span class="battery-level">78%</span>
+                </div>
+                <div class="signal">
+                    <i class="fas fa-signal"></i>
+                </div>
+                <div class="bluetooth">
+                    <i class="fab fa-bluetooth-b"></i>
+                </div>
+            </div>
+
+            <!-- Main Display -->
+            <div class="main-display">
+                <!-- Digital Time Display -->
+                <div class="time-display active" id="digitalTime">
+                    <div class="time-wrapper">
+                        <div class="time-digits">
+                            <span class="hours">12</span>
+                            <span class="separator">:</span>
+                            <span class="minutes">00</span>
+                            <span class="separator">:</span>
+                            <span class="seconds">00</span>
+                        </div>
+                        <div class="ampm">AM</div>
+                    </div>
+                    <div class="date-display">
+                        <span class="day">Monday</span>
+                        <span class="date">January 1, 2024</span>
+                    </div>
+                </div>
+
+                <!-- Analog Style Digital Display -->
+                <div class="time-display" id="analogDigital">
+                    <div class="analog-container">
+                        <div class="clock-face">
+                            <div class="digital-hands">
+                                <div class="hour-hand"></div>
+                                <div class="minute-hand"></div>
+                                <div class="second-hand"></div>
+                            </div>
+                            <div class="center-dot"></div>
+                        </div>
+                        <div class="digital-time-small">
+                            <span class="time-small">12:00:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neon Style Display -->
+                <div class="time-display" id="neonTime">
+                    <div class="neon-container">
+                        <div class="neon-time">
+                            <span class="neon-digit">1</span>
+                            <span class="neon-digit">2</span>
+                            <span class="neon-separator">:</span>
+                            <span class="neon-digit">0</span>
+                            <span class="neon-digit">0</span>
+                        </div>
+                        <div class="neon-date">
+                            <span class="neon-text">MON JAN 01</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stopwatch Display -->
+                <div class="time-display" id="stopwatch">
+                    <div class="stopwatch-container">
+                        <div class="stopwatch-title">STOPWATCH</div>
+                        <div class="stopwatch-time">
+                            <span class="sw-minutes">00</span>
+                            <span class="sw-separator">:</span>
+                            <span class="sw-seconds">00</span>
+                            <span class="sw-separator">.</span>
+                            <span class="sw-milliseconds">00</span>
+                        </div>
+                        <div class="stopwatch-controls">
+                            <button class="sw-btn start-stop" id="swStartStop">START</button>
+                            <button class="sw-btn reset" id="swReset">RESET</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timer Display -->
+                <div class="time-display" id="timer">
+                    <div class="timer-container">
+                        <div class="timer-title">TIMER</div>
+                        <div class="timer-time">
+                            <span class="timer-minutes">05</span>
+                            <span class="timer-separator">:</span>
+                            <span class="timer-seconds">00</span>
+                        </div>
+                        <div class="timer-controls">
+                            <button class="timer-btn" id="timerMinus">-</button>
+                            <button class="timer-btn start-stop" id="timerStartStop">START</button>
+                            <button class="timer-btn" id="timerPlus">+</button>
+                        </div>
+                        <div class="timer-progress">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weather Display -->
+                <div class="time-display" id="weather">
+                    <div class="weather-container">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-temp">24°C</div>
+                        <div class="weather-desc">Sunny</div>
+                        <div class="weather-details">
+                            <div class="humidity">
+                                <i class="fas fa-tint"></i>
+                                <span>65%</span>
+                            </div>
+                            <div class="wind">
+                                <i class="fas fa-wind"></i>
+                                <span>12 km/h</span>
+                            </div>
+                        </div>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>New York</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Dots -->
+            <div class="nav-dots">
+                <div class="dot active" data-screen="digitalTime"></div>
+                <div class="dot" data-screen="analogDigital"></div>
+                <div class="dot" data-screen="neonTime"></div>
+                <div class="dot" data-screen="stopwatch"></div>
+                <div class="dot" data-screen="timer"></div>
+                <div class="dot" data-screen="weather"></div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <button class="control-btn theme-btn" id="themeBtn">
+                    <i class="fas fa-palette"></i>
+                </button>
+                <button class="control-btn sound-btn" id="soundBtn">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <button class="control-btn settings-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+
+            <!-- Theme Selector -->
+            <div class="theme-selector" id="themeSelector">
+                <div class="theme-option" data-theme="blue">
+                    <div class="theme-preview blue-theme"></div>
+                    <span>Ocean</span>
+                </div>
+                <div class="theme-option" data-theme="red">
+                    <div class="theme-preview red-theme"></div>
+                    <span>Fire</span>
+                </div>
+                <div class="theme-option" data-theme="green">
+                    <div class="theme-preview green-theme"></div>
+                    <span>Nature</span>
+                </div>
+                <div class="theme-option" data-theme="purple">
+                    <div class="theme-preview purple-theme"></div>
+                    <span>Galaxy</span>
+                </div>
+                <div class="theme-option" data-theme="gold">
+                    <div class="theme-preview gold-theme"></div>
+                    <span>Luxury</span>
+                </div>
+            </div>
+
+            <!-- Particles Background -->
+            <div class="particles" id="particles"></div>
+        </div>
+
+        <!-- Touch Gestures Indicator -->
+        <div class="gesture-hint">
+            <i class="fas fa-hand-pointer"></i>
+            <span>Swipe to navigate • Tap to interact</span>
+        </div>
+    </div>
+
+    <script src="my.js"></script>
+</body>
+</html>
